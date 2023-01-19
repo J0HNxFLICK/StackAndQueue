@@ -37,6 +37,27 @@ namespace Day14Practice
                 temp = temp.next;
             }
         }
+
+        public void Pop()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("Stack is empty, Deletion is not possible");
+            }
+            else
+            {
+                Console.WriteLine("Value popped is {0} ", top.data);
+                top = top.next;
+            }
+        }
+
+        public void Peek()
+        {
+            if (top == null)
+                Console.WriteLine("Stack is empty");
+            else
+                Console.WriteLine("\n{0} is in the top of the stack ", top.data);
+        }
     }
     internal class Day14Practice
     {
@@ -52,6 +73,14 @@ namespace Day14Practice
             st.Push(56);
             st.Display();
 
+            // UC2 Peek and Pop until empty
+            st.Peek();
+            st.Pop();
+            st.Peek();
+            st.Pop();
+            st.Peek();
+            st.Pop();
+            st.Peek();
         }
     }
 }
