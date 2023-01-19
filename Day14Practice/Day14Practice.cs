@@ -50,6 +50,17 @@ namespace Day14Practice
                 temp = temp.next;
             }
         }
+
+        public void Dequeue()
+        {
+            if (head == null)
+                Console.WriteLine("\nQueue is empty.");
+            else
+            {
+                Console.WriteLine("\n{0} removed from queue.", head.data);
+                head = head.next;
+            }
+        }
     }
 
     class Node
@@ -135,6 +146,14 @@ namespace Day14Practice
             queue.Enqueue(56);
             queue.Enqueue(30);
             queue.Enqueue(70);
+            queue.Display();
+
+            // UC4 Dequeue from begining
+            queue.Dequeue();
+            queue.Display();
+            queue.Dequeue();
+            queue.Display();
+            queue.Dequeue();
             queue.Display();
         }
     }
