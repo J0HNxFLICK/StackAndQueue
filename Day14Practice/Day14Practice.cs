@@ -2,6 +2,56 @@
 
 namespace Day14Practice
 {
+
+    class QueueNode
+    {
+        public int data;
+        public QueueNode next;
+        public QueueNode(int data)
+        {
+            this.data = data;
+            next = null;
+        }
+    }
+
+
+    class Queue
+    {
+        QueueNode head = null;
+        public void Enqueue(int data)
+        {
+            QueueNode qnode = new QueueNode(data);
+            if (head == null)
+                head = qnode;
+            else
+            {
+                QueueNode temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = qnode;
+            }
+            Console.WriteLine("{0} inserted into queue ", qnode.data);
+
+        }
+
+        public void Display()
+        {
+            QueueNode temp = head;
+            if (temp == null)
+            {
+                Console.WriteLine("Queue is empty");
+                return;
+            }
+            while (temp != null)
+            {
+                Console.Write(temp.data + " ");
+                temp = temp.next;
+            }
+        }
+    }
+
     class Node
     {
         public int data;
@@ -12,11 +62,9 @@ namespace Day14Practice
 
         }
     }
-
     class Stack
     {
         private Node top = null;
-
         public void Push(int value)
         {
             Node node = new Node(value);
@@ -81,6 +129,13 @@ namespace Day14Practice
             st.Peek();
             st.Pop();
             st.Peek();
+
+            // UC3 Created Queue 56->30->70
+            Queue queue= new Queue();
+            queue.Enqueue(56);
+            queue.Enqueue(30);
+            queue.Enqueue(70);
+            queue.Display();
         }
     }
 }
